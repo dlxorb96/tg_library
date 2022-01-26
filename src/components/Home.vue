@@ -1,15 +1,28 @@
 <template>
     <div>
-        <h4>home.vue</h4>
+        <input type="text" v-model="state.input">
+        <button @click="handleClick">클릭</button>
     </div>
 </template>
 
 <script>
-    export default {
+// import { reactive } from '@vue/reactivity'
+import { reactive,  } from '@vue/reactivity'
+export default {
+    setup () {
+        const state = reactive({
+            input : null,
+        })
+        const handleClick = () =>{
+            console.log(state.input.value)
+        }
         
+
+        return {state, handleClick}
     }
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
