@@ -18,7 +18,8 @@ import {reactive} from 'vue'
 export default {
     setup () {
         let state = reactive({
-            activeIndex: '/'
+            // activeIndex: '/'
+            activeIndex: sessionStorage.getItem("CURL")
             })
 
         const handleSelect = (idx) =>{
