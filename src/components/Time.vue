@@ -21,9 +21,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="tmp in state2" v-bind:key="tmp" >
-                        <td>1{{tmp.doing}}</td>
-                        <td>2{{tmp.time}}</td>
+                    
+                    <tr v-for="tmp in state2.items" :key="tmp" >
+                        <td>{{tmp.doing}}</td>
+                        <td>{{tmp.regDate}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -37,15 +38,17 @@ import axios from 'axios';
 // import { onMounted } from '@vue/runtime-core';
 export default {
     setup () {
+        //입력 버튼 클릭시 db에 들어가는 데이터
         const state = reactive({
             doing: ''
         });
-
+        //db에서 불러온 데이터 통계버튼 클릭 시 불러오기
         let state2 = reactive({
+            items : {},
             doing : '',
-            regdate : ''
+            // regdate : ''
         })
-        console.log(state2)
+        // console.log(state2)
 
         const onSubmit = () =>{
             handleKeyUp()
@@ -78,9 +81,9 @@ export default {
             const response = await axios.get(url, {headers});
             console.log(response);
             if(response.data.status ===200){
-                state2.doing = response.data.result
+                state2.items = response.data.result
             }
-            console.log(state2)
+            console.log(state2 )
             
         }
 

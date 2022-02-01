@@ -5,6 +5,7 @@ import { createWebHashHistory, createRouter} from "vue-router";
 
 import Home from '@/components/Home.vue'
 import Time from '@/components/Time.vue'
+import Login from '@/components/Login.vue'
 
 //URL과 컴포넌트의 연결
 const routes = [
@@ -12,6 +13,7 @@ const routes = [
     {path:'/', redirect: '/home'},
     {path:'/home', name: 'Home', component: Home },
     {path: '/time', name: 'Time', component: Time},
+    {path: '/login', name: 'Login', component: Login},
 ]
 
 //실제 라우트 적용
